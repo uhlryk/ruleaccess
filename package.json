@@ -1,0 +1,25 @@
+{
+  "name": "ruleaccess",
+  "version": "0.0.1",
+  "description": "ruleaccess - Rule Based Access Control module. Check user permission based on user data, rule, rule params and params in resource",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --check-leaks test"
+  },
+  "keywords": [
+    "middleware",
+    "acl",
+    "active",
+    "control",
+    "list",
+    "resources",
+    "roles",
+    "permissions"
+  ],
+  "author": "Krzysztof Sztompka",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.5"
+  }
+}
