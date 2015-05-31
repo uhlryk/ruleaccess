@@ -168,5 +168,26 @@ describe("RuleAccess core", function(){
 				}, "DummyResource")).to.be.true;
 			});
 		});
+		describe("negateRule", function(){
+			it("should return false when all args are undefined", function(){
+				expect(ruleFunctionList.negateRule()).to.be.false;
+			});
+			it("should return true when alwaysDisallow rule added", function(){
+				var rule = {
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				};
+				expect(ruleFunctionList.negateRule({}, {}, {
+					rule : rule
+				}, "DummyResource")).to.be.true;
+			});
+			it("should return false when alwaysAllow rule added", function(){
+				var rule = {
+					ruleFunction : ruleFunctionList.alwaysAllow
+				};
+				expect(ruleFunctionList.negateRule({}, {}, {
+					rule : rule
+				}, "DummyResource")).to.be.false;
+			});
+		});
 	});
 });
