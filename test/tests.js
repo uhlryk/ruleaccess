@@ -96,6 +96,77 @@ describe("RuleAccess core", function(){
 					rules : rulesList
 				}, "DummyResource")).to.be.true;
 			});
+			it("should return true when two rules added : alwaysDisallow, alwaysDisallow", function(){
+				var rulesList = [{
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				}, {
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				}];
+				expect(ruleFunctionList.anyOfRuleList({}, {}, {
+					rules : rulesList
+				}, "DummyResource")).to.be.false;
+			});
+		});
+		describe("everyOfRuleList", function(){
+			it("should return false when all args are undefined", function(){
+				expect(ruleFunctionList.everyOfRuleList()).to.be.false;
+			});
+			it("should return false when one rule added : alwaysDisallow", function(){
+				var rulesList = [{
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				}];
+				expect(ruleFunctionList.everyOfRuleList({}, {}, {
+					rules : rulesList
+				}, "DummyResource")).to.be.false;
+			});
+			it("should return true when one rule added : alwaysAllow", function(){
+				var rulesList = [{
+					ruleFunction : ruleFunctionList.alwaysAllow
+				}];
+				expect(ruleFunctionList.everyOfRuleList({}, {}, {
+					rules : rulesList
+				}, "DummyResource")).to.be.true;
+			});
+			it("should return false when two rules added : alwaysAllow, alwaysDisallow", function(){
+				var rulesList = [{
+					ruleFunction : ruleFunctionList.alwaysAllow
+				}, {
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				}];
+				expect(ruleFunctionList.everyOfRuleList({}, {}, {
+					rules : rulesList
+				}, "DummyResource")).to.be.false;
+			});
+			it("should return false when two rules added : alwaysDisallow, alwaysAllow", function(){
+				var rulesList = [{
+					ruleFunction : ruleFunctionList.alwaysAllow
+				}, {
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				}];
+				expect(ruleFunctionList.everyOfRuleList({}, {}, {
+					rules : rulesList
+				}, "DummyResource")).to.be.false;
+			});
+			it("should return false when two rules added : alwaysDisallow, alwaysDisallow", function(){
+				var rulesList = [{
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				}, {
+					ruleFunction : ruleFunctionList.alwaysDisallow
+				}];
+				expect(ruleFunctionList.everyOfRuleList({}, {}, {
+					rules : rulesList
+				}, "DummyResource")).to.be.false;
+			});
+			it("should return true when two rules added : alwaysAllow, alwaysAllow", function(){
+				var rulesList = [{
+					ruleFunction : ruleFunctionList.alwaysAllow
+				}, {
+					ruleFunction : ruleFunctionList.alwaysAllow
+				}];
+				expect(ruleFunctionList.everyOfRuleList({}, {}, {
+					rules : rulesList
+				}, "DummyResource")).to.be.true;
+			});
 		});
 	});
 });
