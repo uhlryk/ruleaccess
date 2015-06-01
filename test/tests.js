@@ -14,24 +14,6 @@ describe("RuleAccess core", function(){
 		expect(ruleAccess.ruleFunctionList).to.be.exist;
 	});
 });
-describe("RuleAccess core when ruleFunctionList is not set", function(){
-	it("should return false on method isAllowed without args when userResource set only", function(){
-		var userResource = {};
-		var ruleAccess = new RuleAccess(userResource);
-		expect(ruleAccess.isAllowed()).to.be.false;
-	});
-	it("should return userResource on method getUserResource when userResource set in constructor", function(){
-		var userResource = {};
-		var ruleAccess = new RuleAccess(userResource);
-		expect(userResource).to.be.equal(ruleAccess.getUserResource());
-	});
-	it("should return userResource on method getUserResource  when userResource set in setUserResource", function(){
-		var userResource = {};
-		var ruleAccess = new RuleAccess();
-		ruleAccess.setUserResource(userResource);
-		expect(userResource).to.be.equal(ruleAccess.getUserResource());
-	});
-});
 describe("Test Default Rule Functions", function(){
 	describe("alwaysAllow", function(){
 		it("should return true when all args are undefined", function(){
