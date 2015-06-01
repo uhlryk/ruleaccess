@@ -73,15 +73,15 @@ describe("Test Default Rule Functions", function(){
 			expect(rule.everyOnRuleList([rule.alwaysAllow(), rule.alwaysAllow()])({}, {})).to.be.true;
 		});
 	});
-	describe("negateRule", function(){
+	describe("negate", function(){
 		it("should return false when all args are undefined", function(){
-			expect(rule.negateRule()()).to.be.false;
+			expect(rule.negate()()).to.be.false;
 		});
 		it("should return true when alwaysDisallow rule added", function(){
-			expect(rule.negateRule(rule.alwaysDisallow())({}, {})).to.be.true;
+			expect(rule.negate(rule.alwaysDisallow())({}, {})).to.be.true;
 		});
 		it("should return false when alwaysAllow rule added", function(){
-			expect(rule.negateRule(rule.alwaysAllow())({}, {})).to.be.false;
+			expect(rule.negate(rule.alwaysAllow())({}, {})).to.be.false;
 		});
 	});
 });
