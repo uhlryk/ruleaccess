@@ -1,6 +1,6 @@
 {
   "name": "ruleaccess",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ruleaccess - Rule Based Access Control module. Check user permission based on user data, rule, rule params and params in resource",
   "main": "index.js",
   "scripts": {
